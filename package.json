@@ -1,8 +1,8 @@
 {
-  "name": "prismic-reactjs",
+  "name": "prismic-react-jsx",
   "version": "1.1.0",
   "description": "render prismic rich text as React Element, with support for extra component props",
-  "main": "dist/prismic-reactjs.js",
+  "main": "dist/index.js",
   "scripts": {
     "build": "webpack --debug; webpack -p",
     "analyze": "webpack -p --analyze",
