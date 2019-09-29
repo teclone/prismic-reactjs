@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { func, node } from 'prop-types';
 
-import { Elements } from 'prismic-richtext';
+import { Elements } from 'prismic-richtext-jsx';
 import { renderRichText, asText } from './richtext';
 
 const createHtmlSerializer = (bucket = {}, serializers = []) => {

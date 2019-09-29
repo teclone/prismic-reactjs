@@ -2,7 +2,6 @@ import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { it, describe } from 'mocha';
 import { expect } from 'chai';
-import { Elements } from 'prismic-richtext';
 
 import { renderRichText } from '../src/richtext';
 
@@ -10,22 +9,26 @@ Enzyme.configure({ adapter: new Adapter() });
 
 describe('richtext', () => {
   it('does not specify a key on the wrapper element', () => {
-    const richText = [{
-      type: 'heading2',
-      text: 'Heading',
-      spans: [],
-    }];
+    const richText = [
+      {
+        type: 'heading2',
+        text: 'Heading',
+        spans: [],
+      },
+    ];
     const wrapper = shallow(renderRichText(richText, null, null, 'div'));
 
     expect(wrapper.key()).to.equal(null);
   });
 
   it('renders a simple element with key zero', () => {
-    const richText = [{
-      type: 'heading2',
-      text: 'Heading',
-      spans: [],
-    }];
+    const richText = [
+      {
+        type: 'heading2',
+        text: 'Heading',
+        spans: [],
+      },
+    ];
     const wrapper = shallow(renderRichText(richText, null, null, 'div'));
 
     expect(wrapper.find('h2').key()).to.equal('0');
