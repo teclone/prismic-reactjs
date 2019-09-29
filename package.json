@@ -1,28 +1,25 @@
 {
   "name": "prismic-reactjs",
   "version": "1.1.0",
-  "description": "render prismic rich text as React Element",
+  "description": "render prismic rich text as React Element, with support for extra component props",
   "main": "dist/prismic-reactjs.js",
   "scripts": {
     "build": "webpack --debug; webpack -p",
     "analyze": "webpack -p --analyze",
     "dev": "webpack -d --watch",
-    "prepublish": "npm run build",
-    "test": "mocha --require @babel/register test"
+    "test": "nyc --reporter=html --reporter=text mocha  -r @babel/register",
+    "semantic-release": "semantic-release",
+    "report-coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prismicio/prismic-reactjs.git"
+    "url": "https://github.com/harrison-ifeanyichukwu/prismic-react-jsx.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/prismicio/prismic-reactjs/issues"
-  },
-  "homepage": "https://github.com/prismicio/prismic-reactjs#readme",
   "dependencies": {
     "prismic-helpers": "^1.0.0",
-    "prismic-richtext": "^1.0.3",
+    "prismic-richtext-jsx": "1.1.0",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
@@ -35,12 +32,16 @@
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chai": "^4.2.0",
+    "coveralls": "3.0.6",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "mocha": "^6.1.2",
+    "nyc": "14.1.1",
     "react": ">=16.0.0",
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
+    "semantic-release": "^15.13.24",
+    "semantic-release-cli": "5.2.1",
     "webpack": "^4.29.6",
     "webpack-bundle-analyzer": "^3.4.1",
     "webpack-cli": "^3.3.0",
