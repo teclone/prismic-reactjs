@@ -19,7 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "prismic-helpers": "^1.0.0",
-    "prismic-richtext-jsx": "1.1.0",
+    "prismic-richtext-jsx": "1.1.1",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
