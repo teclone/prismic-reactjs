@@ -1,6 +1,6 @@
 {
   "name": "prismic-react-jsx",
-  "version": "1.1.0",
+  "version": "0.0.0-development",
   "description": "render prismic rich text as React Element, with support for extra component props",
   "main": "dist/index.js",
   "scripts": {
