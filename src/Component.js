@@ -1,6 +1,6 @@
 import { func, elementType } from 'prop-types';
 
-import { Elements } from 'prismic-richtext-jsx';
+import { Elements } from '@teclone/prismic-richtext';
 import { renderRichText, asText } from './richtext';
 
 const createHtmlSerializer = (bucket = {}, serializers = []) => {
@@ -29,7 +29,9 @@ const RichText = ({
         },
       ]));
 
-  return render ? renderRichText(render, linkResolver, maybeSerializer, Component, componentProps) : null;
+  return render
+    ? renderRichText(render, linkResolver, maybeSerializer, Component, componentProps)
+    : null;
 };
 
 RichText.propTypes = {
@@ -39,7 +41,7 @@ RichText.propTypes = {
   serializeHyperlink: (props, _, componentName) => {
     if (props.serializeHyperlink && props.htmlSerializer) {
       return new Error(
-        `You cannot specify both 'htmlSerializer' and 'serializeHyperlink'. The latter will be ignored by '${componentName}'.`
+        `You cannot specify both 'htmlSerializer' and 'serializeHyperlink'. The latter will be ignored by '${componentName}'.`,
       );
     }
   },

@@ -1,10 +1,14 @@
 {
-  "name": "prismic-react-jsx",
+  "name": "@teclone/prismic-reactjs",
   "version": "0.0.0-development",
   "description": "render prismic rich text as React Element, with support for extra component props",
-  "main": "dist/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "main": "build/index",
+  "module": "build/esm/index",
   "scripts": {
-    "build": "webpack --debug; webpack -p",
+    "build": "rollup-all",
     "analyze": "webpack -p --analyze",
     "dev": "webpack -d --watch",
     "test": "nyc --reporter=html --reporter=text mocha  -r @babel/register",
@@ -13,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/harrison-ifeanyichukwu/prismic-react-jsx.git"
+    "url": "https://github.com/teclone/prismic-reactjs.git"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@teclone/prismic-richtext": "1.1.4",
     "prismic-helpers": "^1.0.0",
-    "prismic-richtext-jsx": "1.1.1",
     "prop-types": "^15.7.2"
   },
   "peerDependencies": {
@@ -29,6 +33,7 @@
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/register": "^7.4.0",
+    "@teclone/rollup-all": "1.10.9",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "chai": "^4.2.0",
@@ -40,7 +45,7 @@
     "react": ">=16.0.0",
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
-    "semantic-release": "^15.13.24",
+    "semantic-release": "^17.0.4",
     "semantic-release-cli": "5.2.1",
     "webpack": "^4.29.6",
     "webpack-bundle-analyzer": "^3.4.1",

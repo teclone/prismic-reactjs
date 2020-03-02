@@ -1,8 +1,8 @@
-const PrismicHelpers = require('prismic-helpers');
-const PrismicRichText = require('prismic-richtext-jsx');
-const Component = require('./Component');
+import PrismicHelpers from 'prismic-helpers';
+import PrismicRichText from '@teclone/prismic-richtext';
+import Component from './Component';
 
-module.exports = {
+export default {
   Date: PrismicHelpers.Date,
   Elements: PrismicRichText.Elements,
   Link: PrismicHelpers.Link,

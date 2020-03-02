@@ -1,8 +1,9 @@
-import React, { createElement, Fragment } from 'react';
-import PrismicRichText, { Elements } from 'prismic-richtext-jsx';
+import { createElement, Fragment } from 'react';
+import PrismicRichText, { Elements } from '@teclone/prismic-richtext';
 import { Link as LinkHelper } from 'prismic-helpers';
 import { embeds } from './embeds';
-const createScript = typeof window !== `undefined` ? require('./embeds').createScript : () => {};
+const createScript =
+  typeof window !== `undefined` ? require('./embeds').createScript : () => {};
 
 function serialize(linkResolver, type, element, content, children, index) {
   switch (type) {
@@ -61,7 +62,11 @@ function serializeStandardTag(tag, element, children, key) {
 function serializeHyperlink(linkResolver, element, children, key) {
   const targetAttr = element.data.target ? { target: element.data.target } : {};
   const relAttr = element.data.target ? { rel: 'noopener' } : {};
-  const props = Object.assign({ href: LinkHelper.url(element.data, linkResolver) }, targetAttr, relAttr);
+  const props = Object.assign(
+    { href: LinkHelper.url(element.data, linkResolver) },
+    targetAttr,
+    relAttr,
+  );
   return createElement('a', propsWithUniqueKey(props, key), children);
 }
 
@@ -88,14 +93,17 @@ function serializeSpan(content) {
 
 function serializeImage(linkResolver, element, key) {
   const linkUrl = element.linkTo ? LinkHelper.url(element.linkTo, linkResolver) : null;
-  const linkTarget = element.linkTo && element.linkTo.target ? { target: element.linkTo.target } : {};
+  const linkTarget =
+    element.linkTo && element.linkTo.target ? { target: element.linkTo.target } : {};
   const relAttr = linkTarget.target ? { rel: 'noopener' } : {};
   const img = createElement('img', { src: element.url, alt: element.alt || '' });
 
   return createElement(
     'p',
     propsWithUniqueKey({ className: [element.label || '', 'block-img'].join(' ') }, key),
-    linkUrl ? createElement('a', Object.assign({ href: linkUrl }, linkTarget, relAttr), img) : img
+    linkUrl
+      ? createElement('a', Object.assign({ href: linkUrl }, linkTarget, relAttr), img)
+      : img,
   );
 }
 
@@ -116,17 +124,25 @@ function serializeEmbed(element, key) {
         }
       },
     },
-    element.label ? { className: `${className} ${element.label}` } : { className }
+    element.label ? { className: `${className} ${element.label}` } : { className },
   );
 
-  const embedHtml = createElement('div', { dangerouslySetInnerHTML: { __html: element.oembed.html } });
+  const embedHtml = createElement('div', {
+    dangerouslySetInnerHTML: { __html: element.oembed.html },
+  });
 
   return createElement('div', propsWithUniqueKey(props, key), embedHtml);
 }
 
 export const asText = structuredText => PrismicRichText.asText(structuredText);
 
-export const renderRichText = (richText, linkResolver, htmlSerializer, Component = Fragment, componentProps) => {
+export const renderRichText = (
+  richText,
+  linkResolver,
+  htmlSerializer,
+  Component = Fragment,
+  componentProps,
+) => {
   if (Object.prototype.toString.call(richText) !== '[object Array]') {
     console.warn(`Rich text argument should be an Array. Received ${typeof richtext}`);
     return null;
@@ -135,7 +151,7 @@ export const renderRichText = (richText, linkResolver, htmlSerializer, Component
     richText,
     serialize.bind(null, linkResolver),
     htmlSerializer,
-    componentProps
+    componentProps,
   );
   return createElement(Component, componentProps, serializedChildren);
 };

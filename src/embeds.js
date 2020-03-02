@@ -1,9 +1,10 @@
 export function createScript({ property, src, id }) {
   if (!window) {
-    return
+    return;
   }
   (function(src, id) {
-    var js, fjs = document.getElementsByTagName('script')[0],
+    var js,
+      fjs = document.getElementsByTagName('script')[0],
       t = window[property] || {};
     if (document.getElementById(id)) {
       return t;
@@ -17,7 +18,7 @@ export function createScript({ property, src, id }) {
       t._e.push(f);
     };
     return t;
-  }(src, id));
+  })(src, id);
 }
 
 export const embeds = {
@@ -29,17 +30,17 @@ export const embeds = {
       if (window && window.twttr) {
         window.twttr.widgets.load();
       }
-    }
+    },
   },
   Facebook: {
     property: 'FB',
     src: 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3',
     id: 'fb-wjs',
-    load: (ref) => {
+    load: ref => {
       if (window && window.FB) {
-         window.FB.XFBML.parse(ref);
+        window.FB.XFBML.parse(ref);
       }
-    }
+    },
   },
   Instagram: {
     property: 'instgrm',
@@ -49,6 +50,6 @@ export const embeds = {
       if (window && window.instgrm) {
         window.instgrm.Embeds.process();
       }
-    }
+    },
   },
-}
+};
