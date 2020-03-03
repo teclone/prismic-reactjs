@@ -5,7 +5,7 @@ import { embeds } from './embeds';
 const createScript =
   typeof window !== `undefined` ? require('./embeds').createScript : () => {};
 
-function serialize(linkResolver, type, element, content, children, index) {
+function runSerialize(linkResolver, type, element, content, children, index) {
   switch (type) {
     case Elements.heading1:
       return serializeStandardTag('h1', element, children, index);
@@ -147,7 +147,7 @@ export const renderRichText = (
   }
   const serializedChildren = serialize(
     richText,
-    serialize.bind(null, linkResolver),
+    runSerialize.bind(null, linkResolver),
     htmlSerializer,
     componentProps,
   );
