@@ -1,5 +1,5 @@
 import { createElement, Fragment } from 'react';
-import PrismicRichText, { Elements } from '@teclone/prismic-richtext';
+import { Elements, serialize } from '@teclone/prismic-richtext';
 import { Link as LinkHelper } from 'prismic-helpers';
 import { embeds } from './embeds';
 const createScript =
@@ -134,8 +134,6 @@ function serializeEmbed(element, key) {
   return createElement('div', propsWithUniqueKey(props, key), embedHtml);
 }
 
-export const asText = structuredText => PrismicRichText.asText(structuredText);
-
 export const renderRichText = (
   richText,
   linkResolver,
@@ -147,7 +145,7 @@ export const renderRichText = (
     console.warn(`Rich text argument should be an Array. Received ${typeof richtext}`);
     return null;
   }
-  const serializedChildren = PrismicRichText.serialize(
+  const serializedChildren = serialize(
     richText,
     serialize.bind(null, linkResolver),
     htmlSerializer,

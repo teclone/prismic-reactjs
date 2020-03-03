@@ -22,7 +22,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@teclone/prismic-richtext": "1.1.4",
+    "@teclone/prismic-richtext": "1.1.5",
     "prismic-helpers": "^1.0.0",
     "prop-types": "^15.7.2"
   },

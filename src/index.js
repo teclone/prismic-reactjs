@@ -1,10 +1,11 @@
 import PrismicHelpers from 'prismic-helpers';
-import PrismicRichText from '@teclone/prismic-richtext';
+import { Elements as _Elements } from '@teclone/prismic-richtext';
 import Component from './Component';
 
-export default {
-  Date: PrismicHelpers.Date,
-  Elements: PrismicRichText.Elements,
-  Link: PrismicHelpers.Link,
-  RichText: Component.default,
-};
+export const PrismicDate = PrismicHelpers.Date;
+
+export const Elements = Elements;
+
+export const Link = PrismicHelpers.Link;
+
+export const RichText = Component;
