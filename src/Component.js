@@ -1,7 +1,7 @@
 import { func, elementType } from 'prop-types';
 
-import { Elements } from '@teclone/prismic-richtext';
-import { renderRichText, asText } from './richtext';
+import { Elements, asText } from '@teclone/prismic-richtext';
+import { renderRichText } from './richtext';
 
 const createHtmlSerializer = (bucket = {}, serializers = []) => {
   const processors = serializers.reduce((acc, { type, fn }) => {

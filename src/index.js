@@ -4,7 +4,7 @@ import Component from './Component';
 
 export const PrismicDate = PrismicHelpers.Date;
 
-export const Elements = Elements;
+export const Elements = _Elements;
 
 export const Link = PrismicHelpers.Link;
 
