@@ -1162,10 +1162,10 @@
     "@babel/plugin-transform-runtime" "7.4.3"
     "@babel/runtime" "7.4.3"
 
-"@teclone/prismic-richtext@1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@teclone/prismic-richtext/-/prismic-richtext-1.1.5.tgz#8f40b0a24c34213cc4fb260dc156cdb34010468f"
-  integrity sha512-YquBuJkiKhzA3eNdCyDWmCTommzrk3A/TTk8BT+xs5Ya3aXhEq26iPwOGEmtkKmMjL1hsVPKWEWLeMTfosFgNA==
+"@teclone/prismic-richtext@1.1.6":
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/@teclone/prismic-richtext/-/prismic-richtext-1.1.6.tgz#fba4593bbd6daf527f6aabfaa772b80d8d6e3182"
+  integrity sha512-2yqe/sLxms+gXFzPKuTIyj/ABnRc5sVATYsFU4CdNBM/QQp2tvSBqOpiT7yfnbu2Gq+G8E0lgVMioZ1YrVZEDg==
 
 "@teclone/rollup-all@1.10.9":
   version "1.10.9"
